@@ -12,8 +12,9 @@ allows calling make_index via drag and drop
 
 ## make_index.py
 generates name registers with German sorting from text files with this format:
-> page number
-> surname, firstname
-> surname, firstname
-> page number
+
+    page number
+    surname, first name(s)
+    surname, first name(s)
+    page number
 

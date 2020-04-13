@@ -1,7 +1,7 @@
 import codecs, sys
 
 def german_key(text):
-    return text.replace("ö", "oe").replace("ü", "ue").replace("ä", "ae").replace("Ö", "Oe").replace("Ü", "Ue").replace("Ä", "Ae")
+    return text.replace("ö", "oe").replace("ü", "ue").replace("ä", "ae").replace("Ö", "Oe").replace("Ü", "Ue").replace("Ä", "Ae").replace("ß", "ss")
 
 if len(sys.argv) < 2:
     print("usage: " + sys.argv[0] + " <input file> ")

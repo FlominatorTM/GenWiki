@@ -15,6 +15,6 @@ generates name registers with German sorting from text files with this format:
 
     page number
     surname, first name(s)
-    surname, first name(s)
+    surname, first name(s) ---> an additional note which will be removed
     page number
 

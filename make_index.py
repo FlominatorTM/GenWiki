@@ -19,10 +19,13 @@ with codecs.open(sys.argv[1], "r", "utf-8") as file:
     for line in file.readlines():
         lineClean = line.strip()
         if doOnlyNotes is False and "->" in lineClean:
+            if lineClean[0] is "-":
+                #remove note only lines
+                continue
             indexOfNote = lineClean.find(" -")
+            #prevent splitting of double names
             if indexOfNote > -1:
                 lineClean = lineClean[0:indexOfNote].strip()
-         
         try:
             page = int(lineClean)
         except ValueError:

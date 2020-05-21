@@ -6,18 +6,14 @@
 // @include   https://www.wikitree.com/
 // ==/UserScript==
 
-//shortcut p for preview button
-document.getElementById("previewButton").accessKey="p";
-
 //shortcut e for edit button
 for (var i=0; ulNode = document.getElementsByTagName("ul")[i]; i++)
 {
   if(ulNode.className == "profile-tabs")
   {
-
     for (var j=0; aNode = ulNode.children[j]; j++)
     {
-      if(aNode.title == "Edit Profile and Family Relationships")
+      if(aNode.title == "Edit Profile and Family Relationships" || aNode.title == "Edit this Profile")
       {
         aNode.accessKey="e";
         break;
@@ -34,3 +30,9 @@ if((window.location + "").indexOf("?") == -1)
 }
 
 
+//shortcut p for preview button
+var previewButton = document.getElementById("previewButton");
+if(null != previewButton)
+{
+  previewButton.accessKey="p";
+}

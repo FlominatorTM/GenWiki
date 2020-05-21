@@ -31,7 +31,7 @@ if((window.location + "").indexOf("?") == -1)
 
 
 //shortcut p for preview button
-var previewButton = document.getElementById("previewButton");
+var previewButton = document.getElementsByName("preview")[0];
 if(null != previewButton)
 {
   previewButton.accessKey="p";

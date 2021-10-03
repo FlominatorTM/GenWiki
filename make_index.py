@@ -29,10 +29,12 @@ with codecs.open(sys.argv[1], "r", "utf-8") as file:
         try:
             page = int(lineClean)
         except ValueError:
-            if lineClean in indexed:
-                indexed[lineClean]+= " " + str(page)
-            else: 
-                indexed[lineClean] = str(page)
+            #filter out empty lines
+            if lineClean:
+                if lineClean in indexed:
+                    indexed[lineClean]+= " " + str(page)
+                else: 
+                    indexed[lineClean] = str(page)
            
 letter = ""
 if doOnlyNotes is False:

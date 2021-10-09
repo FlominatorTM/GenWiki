@@ -1,3 +1,5 @@
+#based on https://dvenkatsagar.github.io/tutorials/python/2015/10/26/ddlv/
+
 # The standard library modules
 import os
 import sys
@@ -18,6 +20,7 @@ parser.add_argument('--destination', required=False, default=os.getcwd(), help="
 args = parser.parse_args()
 
 #make Firefox save PNG image downloads without asking
+# via https://www.tutorialspoint.com/how-do-i-automatically-download-files-from-a-pop-up-dialog-using-selenium-python
 #object of Options class
 op = Options()
 #save file to path defined for recent download with value 2

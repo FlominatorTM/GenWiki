@@ -3,6 +3,7 @@ small tools to generate content for the MediaWiki instance at https://wiki-de.ge
 
 ## geogen.py
 downloads surname maps from legacy.stoepel.net, requires geckodriver from https://github.com/mozilla/geckodriver/releases in PATH
+It was started as a command line tool but meanwhile runs as a web server
 
 ## gwp_ofb.php
 generates the table for http://wiki-de.genealogy.net/Benutzer:Flominator/GenPlusOFBs

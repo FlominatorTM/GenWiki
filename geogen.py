@@ -15,8 +15,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 
-
-
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 
@@ -67,14 +65,19 @@ class MyServer(BaseHTTPRequestHandler):
         op.set_preference("browser.helperApps.neverAsk.saveToDisk","image/png")
 
         #make sure you have geckodriver from https://github.com/mozilla/geckodriver/releases in PATH
+        
         driver = webdriver.Firefox(options=op) # if you want to use chrome, replace Firefox() with Chrome()
         driver.get("https://legacy.stoepel.net/de?name=" + surname) # load the web page
-        WebDriverWait(driver, 50).until(EC.visibility_of_element_located((By.ID, "svgStatePie"))) # waits till the element with the specific id appears
-        #trigger download of images
-        driver.execute_script("saveMap('svgMapRelative', 'relativ')");
-        driver.execute_script("saveMap('svgMapAbsolute', 'absolut')");
-        #wait for images to be downloaded
-        time.sleep(3)
+        
+        if "Nichts gefunden!" in driver.page_source:
+            print ("name " + surname +" not found")
+        else:
+            WebDriverWait(driver, 50).until(EC.visibility_of_element_located((By.ID, "svgStatePie"))) # waits till the element with the specific id appears
+            #trigger download of images
+            driver.execute_script("saveMap('svgMapRelative', 'relativ')");
+            driver.execute_script("saveMap('svgMapAbsolute', 'absolut')");
+            #wait for images to be downloaded
+            time.sleep(3)
         driver.close() # closes the driver
 
 if __name__ == "__main__":        

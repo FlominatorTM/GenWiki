@@ -23,6 +23,8 @@ args = parser.parse_args()
 # via https://www.tutorialspoint.com/how-do-i-automatically-download-files-from-a-pop-up-dialog-using-selenium-python
 #object of Options class
 op = Options()
+#do not require a monitor (remove for debugging)
+op.add_argument("--headless")
 #save file to path defined for recent download with value 2
 op.set_preference("browser.download.folderList",2)
 #disable display Download Manager window with false value

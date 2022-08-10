@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name          GenWiki login hacks for GreaseMonkey
+// @name          GenWiki login hack
 // @namespace     https://wiki.genealogy.net/
 // @description   redirecting to the one and only correct URL and trying to fix reload issue
 // @match https://*.genealogy.net/*
@@ -7,7 +7,14 @@
 
 // ==/UserScript==
 
+if(window.name== "hacked window")
+{
+  window.close();
+}
+
+
 var strLocation = window.location.toString();
+
 
 if(strLocation.search("genwiki.de")>-1)
 {
@@ -25,7 +32,8 @@ else if(strLocation.search("wiki.genealogy.net")>-1)
   if(loginLink != null)
   {
     var thisWindow = window;
-    var otherWindow = window.open(loginLink.firstChild.href);
+    var otherWindow = window.open("https://wiki.genealogy.net/index.php?title=Spezial:Anmelden&returnto=GenWiki%3ASpenden", "hacked window");
+    thisWindow.focus();
     thisWindow.location.reload();
   }
 }

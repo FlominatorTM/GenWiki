@@ -9,19 +9,20 @@
 
 if(window.name== "hacked window")
 {
-  window.close();
+    window.close();
+  	return;
 }
 
-
 var strLocation = window.location.toString();
-
+var urlParams = new URLSearchParams(window.location.search);
+var actionParam = urlParams.get('action');
 
 if(strLocation.search("genwiki.de")>-1)
 {
     window.location=strLocation.replace("www.genwiki.de", "wiki.genealogy.net");
 }
 
-if(strLocation.search("wiki-de.genealogy.net")>-1)
+else if(strLocation.search("wiki-de.genealogy.net")>-1)
 {
     window.location=strLocation.replace("wiki.genealogy.net", "wiki.genealogy.net");
 }
@@ -29,11 +30,14 @@ if(strLocation.search("wiki-de.genealogy.net")>-1)
 else if(strLocation.search("wiki.genealogy.net")>-1)
 {
   var loginLink = document.getElementById("pt-login");
-  if(loginLink != null)
+
+  if(loginLink != null && actionParam != null)
   {
     var thisWindow = window;
     var otherWindow = window.open("https://wiki.genealogy.net/index.php?title=Spezial:Anmelden&returnto=GenWiki%3ASpenden", "hacked window");
+    
     thisWindow.focus();
-    thisWindow.location.reload();
+	  alert("cookie broken"); //needed to give otherWindow the time to open
+ 		thisWindow.location.reload();
   }
 }

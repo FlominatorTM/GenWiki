@@ -24,7 +24,7 @@ if(strLocation.search("genwiki.de")>-1)
 
 else if(strLocation.search("wiki-de.genealogy.net")>-1)
 {
-    window.location=strLocation.replace("wiki.genealogy.net", "wiki.genealogy.net");
+    window.location=strLocation.replace("wiki-de.genealogy.net", "wiki.genealogy.net");
 }
 
 else if(strLocation.search("wiki.genealogy.net")>-1)
